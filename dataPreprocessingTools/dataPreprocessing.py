@@ -12,7 +12,6 @@ dependentVariableVector = dataSet.iloc[:, -1].values
 
 # Taking care of missing data
 
-specificColumnsMissingData = ':, 1:3'
 from sklearn.impute import SimpleImputer
 imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
 imputer.fit(matrixOfFeatures[:, 1:3])
@@ -37,7 +36,7 @@ dependentVariableVector = le.fit_transform(dependentVariableVector)
 # Splitting the dataset into the Training set and Test set
 
 from sklearn.model_selection import train_test_split
-matrixOfFeatures_train, matrixOfFeatures_test, dependentVariableVector_train, dependentVariableVector_test = train_test_split(matrixOfFeatures, dependentVariableVector, test_size=0.2)
+matrixOfFeatures_train, matrixOfFeatures_test, dependentVariableVector_train, dependentVariableVector_test = train_test_split(matrixOfFeatures, dependentVariableVector, test_size=0.2, random_state=0)
 
 # Feature Scaliing
 
